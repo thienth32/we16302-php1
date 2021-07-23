@@ -30,7 +30,9 @@ $users = exeQuery($getUserQuery, true);
                 <td><?= $index+1 ?></td>
                 <td><?= $u['name'] ?></td>
                 <td><?= $u['email'] ?></td>
-                <td><?= $u['avatar'] ?></td>
+                <td>
+                    <img src="<?= $u['avatar'] ?>" width="100">
+                </td>
                 <td>
                     <a href="sua-tk.php?id=<?= $u['id'] ?>">Sửa</a>
                     <a href="xoa-tk.php?id=<?= $u['id'] ?>">Xóa</a>
