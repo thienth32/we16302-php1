@@ -36,6 +36,7 @@ $users = exeQuery($getUserQuery, true);
                 <td>
                     <a href="sua-tk.php?id=<?= $u['id'] ?>">Sửa</a>
                     <a href="xoa-tk.php?id=<?= $u['id'] ?>">Xóa</a>
+                    <a href="doi-mk.php?id=<?= $u['id'] ?>">Đổi MK</a>
                 </td>
             </tr>
         <?php endforeach ?>

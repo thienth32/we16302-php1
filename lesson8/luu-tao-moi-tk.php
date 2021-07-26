@@ -4,6 +4,7 @@ require_once './db.php';
 $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
+$passwordHash = password_hash($password, PASSWORD_DEFAULT);
 $avatar = $_FILES['avatar'];
 $filename = "";
 // lưu ảnh vào thư mục
@@ -18,7 +19,7 @@ if($avatar['size'] > 0){
 $insertUserQuery = "INSERT INTO users 
                         (name, email, password, avatar) 
                     values 
-                        ('$name', '$email', '$password', '$filename')";
+                        ('$name', '$email', '$passwordHash', '$filename')";
 // var_dump($insertUserQuery);
 // die;
 exeQuery($insertUserQuery, false);
