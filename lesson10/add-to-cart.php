@@ -20,15 +20,15 @@ foreach ($cartData as $key => $value) {
 }
 if($flag == -1){
     // sản phẩm không có trong giỏ hàng
-    $product['quantity'] = 1;
+    $product['cart_amount'] = 1;
     // array_push($cartData, $product);
     $cartData[] = $product;
 }else {
     // sản phẩm đã tồn tại trong giỏ hàng rồi và ở vị trí $flag
-    $cartData[$flag]['quantity']++;
+    $cartData[$flag]['cart_amount']++;
 }
 
 $_SESSION['cart'] = $cartData;
-
+header('location: san-pham.php');
 
 ?>
