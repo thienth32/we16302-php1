@@ -5,8 +5,6 @@ if(!isset($_SESSION['cart']) || empty($_SESSION['cart'])){
 }else {
     $cartData = $_SESSION['cart'];
 }
-
-
 ?>
 
 <?php if(count($cartData) == 0):?>
