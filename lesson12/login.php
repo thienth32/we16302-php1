@@ -3,7 +3,7 @@
 // check xem người dùng đã sử dụng remember hay chưa nếu có remember & hợp lệ thì cho đăng nhập luôn
 session_start();
 require_once './db.php';
-$loginToken = isset($_SESSION['remember_login']) ? $_SESSION['remember_login'] : "";
+$loginToken = isset($_COOKIE['remember_login']) ? $_COOKIE['remember_login'] : "";
 if($loginToken != ""){
     $now = new DateTime();
     $currentTime = $now->format('Y-m-d H:i:s');
@@ -12,6 +12,7 @@ if($loginToken != ""){
                                 from users 
                                 where remember_token = '$loginToken'
                                     and remember_expire >= '$currentTime'";
+    // var_dump($getUserByRememberToken);die;
     $user = exeQuery($getUserByRememberToken, false);
     if($user){
         unset($user['password']);
