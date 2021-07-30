@@ -16,7 +16,6 @@ if($user && password_verify($password, $user['password'])){
         $expireObj = new DateTime("+15 days");
         $expireTime = $expireObj->format("Y-m-d H:i:s");
         
-        
         setcookie('remember_login', $remember_token, time() + (60*60*24*15), '/');
         
         $updateRememberQuery = "update users 
@@ -28,7 +27,8 @@ if($user && password_verify($password, $user['password'])){
     }
     unset($user['password']);
     $_SESSION['auth'] = $user;
-    
+    header('location: quantri.php');
+    die;
 }
 
 header('location: login.php?msg=Đăng nhập không thành công!');
