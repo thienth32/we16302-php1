@@ -4,6 +4,25 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 require_once './db.php';
 $email = $_POST['email'];
 $password = $_POST['password'];
+
+$errors = "";
+if(empty($email)){
+    $errors .= "email-err=Hãy nhập email&";
+}
+
+if(empty($password)){
+    $errors .= "password-err=Hãy nhập mật khẩu&";
+}
+
+$errors = rtrim($errors, '&');
+
+if(strlen($errors) > 0){
+    header('location: login.php?' . $errors);
+    die;
+}
+
+
+
 $remember = $_POST['remember'];
 
 $getUserByEmail = "select * from users where email = '$email'     ";

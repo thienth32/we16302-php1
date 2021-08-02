@@ -24,8 +24,14 @@ if($loginToken != ""){
 ?>
 <form action="post-login.php" method="post">
     email: <input type="text" name="email">
+    <?php if(isset($_GET['email-err'])):?>
+        <p style="color: red;"><?= $_GET['email-err']; ?></p>
+    <?php endif ?>
     <br>
     mật khẩu: <input type="password" name="password">
+    <?php if(isset($_GET['password-err'])):?>
+        <p style="color: red;"><?= $_GET['password-err']; ?></p>
+    <?php endif ?>
     <br>
     <input type="checkbox" name="remember" value="1"> Ghi nhớ
     <br>
